@@ -14,6 +14,7 @@ It includes ERD diagrams, SQL schema, migration files, sample data, and detailed
 - Migration-ready SQL files
 
 ## Project Structure
+```
 lms-mysql-database-architecture/
 ├── ERD/                 # Mermaid diagrams and exported PNGs
 ├── schema/              # SQL schema files
@@ -21,6 +22,7 @@ lms-mysql-database-architecture/
 ├── seed/                # Sample data
 ├── docs/                # Database documentation
 └── README.md            # Project overview and instructions
+```
 
 ## Setup Instructions
 1. Create the database:
