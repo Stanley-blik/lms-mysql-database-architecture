@@ -1,0 +1,71 @@
+erDiagram
+
+    USERS {
+        INT id PK
+        VARCHAR name
+        VARCHAR email
+        ENUM role
+        TIMESTAMP created_at
+    }
+
+    COURSES {
+        INT id PK
+        VARCHAR title
+        TEXT description
+        DECIMAL price
+        INT instructor_id FK
+        TIMESTAMP created_at
+    }
+
+    MODULES {
+        INT id PK
+        INT course_id FK
+        VARCHAR title
+        INT order_index
+    }
+
+    LESSONS {
+        INT id PK
+        INT module_id FK
+        VARCHAR title
+        ENUM content_type
+        TEXT content_url
+        INT order_index
+    }
+
+    ENROLLMENTS {
+        INT id PK
+        INT user_id FK
+        INT course_id FK
+        TIMESTAMP enrolled_at
+        ENUM status
+    }
+
+    PROGRESS {
+        INT id PK
+        INT user_id FK
+        INT lesson_id FK
+        TIMESTAMP completed_at
+    }
+
+    PAYMENTS {
+        INT id PK
+        INT user_id FK
+        INT course_id FK
+        DECIMAL amount
+        ENUM payment_status
+        TIMESTAMP paid_at
+    }
+
+    USERS ||--o{ COURSES : teaches
+    USERS ||--o{ ENROLLMENTS : enrolls
+    USERS ||--o{ PROGRESS : tracks
+    USERS ||--o{ PAYMENTS : makes
+
+    COURSES ||--o{ MODULES : contains
+    COURSES ||--o{ ENROLLMENTS : has
+    COURSES ||--o{ PAYMENTS : generates
+
+    MODULES ||--o{ LESSONS : includes
+
+    LESSONS ||--o{ PROGRESS : completed_by
