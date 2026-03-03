@@ -44,6 +44,8 @@ SOURCE seed/seed.sql;
 ## ERD
 ERD diagrams can be found in the `ERD/` folder. They visualize the entities, relationships, and cardinalities.
 
+![LMS ERD](ERD/exports/lms_erd.png)
+
 ## Documentation
 See `docs/DATABASE_DOCUMENTATION.md` for:
 - Table descriptions
